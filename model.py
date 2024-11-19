@@ -13,7 +13,8 @@ from keras.models import Model,Sequential
 from keras.optimizers import Adam,SGD,RMSprop
 
 picture_size = 48
-folder_path = "../input/face-expression-recognition-dataset/images/"expression = 'disgust'
+folder_path = "../input/face-expression-recognition-dataset/images/"
+expression = 'disgust'
 
 plt.figure(figsize= (12,12))
 for i in range(1, 10, 1):
@@ -41,7 +42,9 @@ test_set = datagen_val.flow_from_directory(folder_path+"validation",
                                               color_mode = "grayscale",
                                               batch_size=batch_size,
                                               class_mode='categorical',
-                                              shuffle=False)from keras.optimizers import Adam,SGD,RMSprop
+                                              shuffle=False)
+
+from keras.optimizers import Adam,SGD,RMSprop
 
 
 no_of_classes = 7
@@ -97,7 +100,8 @@ model.add(Dense(no_of_classes, activation='softmax'))
 
 opt = Adam(learning_rate=0.0001)
 model.compile(optimizer=opt,loss='categorical_crossentropy', metrics=['accuracy'])
-model.summary()epochs = 1
+model.summary()
+epochs = 1
 
 from keras.callbacks import ModelCheckpoint
 
