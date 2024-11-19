@@ -13,7 +13,7 @@ from keras.models import Model,Sequential
 from keras.optimizers import Adam,SGD,RMSprop
 
 picture_size = 48
-folder_path = "../input/face-expression-recognition-dataset/images/"
+folder_path = "images/"
 expression = 'disgust'
 
 plt.figure(figsize= (12,12))
@@ -198,3 +198,5 @@ plt.xlabel('Predicted Labels')
 plt.ylabel('True Labels')
 plt.title('Confusion Matrix')
 plt.show()
+
+model.save('ERM.h5') 
