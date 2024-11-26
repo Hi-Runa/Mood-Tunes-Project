@@ -106,7 +106,7 @@ epochs = 1
 from keras.callbacks import ModelCheckpoint
 
 # Use `.keras` file extension for saving the model weights
-checkpoint = ModelCheckpoint('/ERM.h5', monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
+checkpoint = ModelCheckpoint('Weights.keras', monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
 callbacks_list = [checkpoint]
 
 # Use `fit` instead of `fit_generator`
@@ -199,4 +199,4 @@ plt.ylabel('True Labels')
 plt.title('Confusion Matrix')
 plt.show()
 
-model.save('/ERM.h5') 
+model.save('ERM.h5') 
