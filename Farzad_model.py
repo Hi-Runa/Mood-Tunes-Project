@@ -1,3 +1,4 @@
+#https://www.kaggle.com/code/farzadnekouei/facial-attribute-analysis-with-mask-detection
 # Disable warnings in the notebook to maintain clean output cells
 import warnings
 warnings.filterwarnings('ignore')
