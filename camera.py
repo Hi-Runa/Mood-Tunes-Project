@@ -1,37 +1,51 @@
-from tensorflow.keras.models import load_model
 import cv2
 import numpy as np
+from tensorflow.keras.models import load_model
+from keras.preprocessing.image import img_to_array
 
-# Load the model
-model = load_model('ERM.keras')
+# Load the trained model
+model = load_model('Weights.keras')
 
-# Define the expected input size for your model
-image_width, image_height = 224, 224  # Replace with your model's input size
+# Define the class labels (same order as used during training)
+class_labels = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprise']
 
-# Open a connection to the camera
-cap = cv2.VideoCapture(0)
+# Initialize webcam
+camera = cv2.VideoCapture(0)
+
+# Ensure the camera opened successfully
+if not camera.isOpened():
+    print("Error: Could not access the webcam.")
+    exit()
+
+print("Press 'q' to quit the program.")
 
 while True:
     # Capture frame-by-frame
-    ret, frame = cap.read()
+    ret, frame = camera.read()
+    if not ret:
+        print("Failed to grab frame.")
+        break
 
-    # Preprocess the frame (resize, normalize, etc.)
-    input_image = cv2.resize(frame, (image_width, image_height))
-    input_image = input_image / 255.0  # Normalize if required
-    input_image = np.expand_dims(input_image, axis=0)  # Add batch dimension
+    # Convert the frame to grayscale (as the model was trained on grayscale images)
+    gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    
+    # Resize the frame to match the input size of the model
+    resized_frame = cv2.resize(gray_frame, (48, 48))
+    processed_frame = img_to_array(resized_frame) / 255.0
+    processed_frame = np.expand_dims(processed_frame, axis=0)  # Add batch dimension
 
-    # Make predictions
-    predictions = model.predict(input_image)
-    predicted_class = np.argmax(predictions, axis=1)[0]
+    # Make prediction
+    prediction = model.predict(processed_frame)
+    emotion_label = class_labels[np.argmax(prediction)]
 
-    # Display the resulting frame with prediction
-    cv2.putText(frame, f'Predicted: {predicted_class}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
-    cv2.imshow('Camera', frame)
+    # Display the resulting frame with the detected emotion
+    cv2.putText(frame, f"Emotion: {emotion_label}", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.imshow('Emotion Recognition', frame)
 
-    # Break the loop on 'q' key press
+    # Press 'q' to quit
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-# Release the camera and close windows
-cap.release()
+# When everything is done, release the camera and close all OpenCV windows
+camera.release()
 cv2.destroyAllWindows()
