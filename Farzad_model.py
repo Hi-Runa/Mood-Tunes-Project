@@ -1,7 +1,4 @@
 #https://www.kaggle.com/code/farzadnekouei/facial-attribute-analysis-with-mask-detection
-# Disable warnings in the notebook to maintain clean output cells
-import warnings
-warnings.filterwarnings('ignore')
 
 # Import necessary libraries
 import os
@@ -399,24 +396,3 @@ backends = [
   'yunet',      # YuNet, an ONNX-based fast and accurate detector.
   'fastmtcnn'  # Fast MTCNN, optimized version of MTCNN for real-time detection on CPUs.
 ]
-
-from IPython.display import display, HTML
-
-# Youtube
-YouTubeVideo_ID = 'GEcT8ajh9pk'
-
-# Adjust the width and height values
-width = 1280  
-height = 720  
-
-# create a HTML string to center the video
-html_str = """
-<div style="display: flex; justify-content: center;">
-    <iframe width="{}" height="{}" src="https://www.youtube.com/embed/{}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-""".format(width, height, YouTubeVideo_ID)
-
-# Display HTML
-display(HTML(html_str))
-
-
