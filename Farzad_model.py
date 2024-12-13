@@ -1,4 +1,5 @@
 #https://www.kaggle.com/code/farzadnekouei/facial-attribute-analysis-with-mask-detection
+#https://stackoverflow.com/questions/55313610/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directo?page=1&tab=scoredesc#tab-top
 
 # Import necessary libraries
 import os
@@ -25,8 +26,8 @@ from deepface import DeepFace
 sns.set(rc={'axes.facecolor': '#f0f2f2'}, style='darkgrid')
 
 # After extracting, specify the directories of the actual images
-with_mask_path = '/kaggle/input/mask-detection/with_mask'
-without_mask_path = '/kaggle/input/mask-detection/without_mask'
+with_mask_path = 'Farzad_Data/with_mask'
+without_mask_path = 'Farzad_Data/without_mask'
 
 # List all filenames in the 'with_mask' and 'without_mask' directories
 with_mask_images = os.listdir(with_mask_path)
@@ -263,7 +264,7 @@ inceptionv3_model.summary()
 plot_model(inceptionv3_model, show_shapes=True, show_layer_names=False, dpi=100)
 
 # Define number of epochs
-num_epochs = 10
+num_epochs = 1 #10
 
 # Create data generators
 train_generator, val_generator = create_data_generators(train_df, 
@@ -396,3 +397,6 @@ backends = [
   'yunet',      # YuNet, an ONNX-based fast and accurate detector.
   'fastmtcnn'  # Fast MTCNN, optimized version of MTCNN for real-time detection on CPUs.
 ]
+
+
+inceptionv3_model.save('Emotion_Detection_Model_Farzad.keras')
