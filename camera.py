@@ -1,51 +1,58 @@
 import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
-from keras.preprocessing.image import img_to_array
 
 # Load the trained model
 model = load_model('Weights.keras')
 
-# Define the class labels (same order as used during training)
-class_labels = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprise']
+# Emotion labels (make sure these match the order of your training dataset)
+emotion_labels = ['angry', 'disgust', 'fear', 'happy', 'sad', 'surprise', 'neutral']
 
-# Initialize webcam
-camera = cv2.VideoCapture(0)
+# Initialize the camera
+cap = cv2.VideoCapture(0)
 
-# Ensure the camera opened successfully
-if not camera.isOpened():
-    print("Error: Could not access the webcam.")
-    exit()
-
-print("Press 'q' to quit the program.")
+# Haar Cascade for face detection
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 while True:
-    # Capture frame-by-frame
-    ret, frame = camera.read()
+    # Read frame from the camera
+    ret, frame = cap.read()
+
     if not ret:
-        print("Failed to grab frame.")
+        print("Failed to grab frame")
         break
 
-    # Convert the frame to grayscale (as the model was trained on grayscale images)
-    gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # Convert the frame to grayscale
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # Detect faces in the frame
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+
+    for (x, y, w, h) in faces:
+        # Extract the region of interest (face)
+        face = gray[y:y+h, x:x+w]
+        face_resized = cv2.resize(face, (48, 48))
+        face_normalized = face_resized / 255.0
+        face_input = np.expand_dims(face_normalized, axis=-1)  # Add channel dimension
+        face_input = np.expand_dims(face_input, axis=0)  # Add batch dimension
+
+        # Predict emotion
+        emotion_pred = model.predict(face_input)
+        max_index = np.argmax(emotion_pred[0])
+        emotion = emotion_labels[max_index]
+        print(emotion_pred)
+        # Draw rectangle around face and label with emotion
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        cv2.putText(frame, emotion, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+
+    # Display the frame with the predicted emotion
+        cv2.imshow('Emotion Detection', frame)
     
-    # Resize the frame to match the input size of the model
-    resized_frame = cv2.resize(gray_frame, (48, 48))
-    processed_frame = img_to_array(resized_frame) / 255.0
-    processed_frame = np.expand_dims(processed_frame, axis=0)  # Add batch dimension
 
-    # Make prediction
-    prediction = model.predict(processed_frame)
-    emotion_label = class_labels[np.argmax(prediction)]
-
-    # Display the resulting frame with the detected emotion
-    cv2.putText(frame, f"Emotion: {emotion_label}", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-    cv2.imshow('Emotion Recognition', frame)
-
-    # Press 'q' to quit
+    # Break the loop when 'q' is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-# When everything is done, release the camera and close all OpenCV windows
-camera.release()
+# Release the camera and close the window
+cap.release()
 cv2.destroyAllWindows()
