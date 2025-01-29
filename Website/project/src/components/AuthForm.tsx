@@ -36,7 +36,8 @@ export function AuthForm({ onSubmit, redirectPath = "/find-music" }: AuthFormPro
         try {
             await onSubmit(email, password, isSignUp ? username : undefined, isSignUp);
             navigate(redirectPath);
-        } catch (err) {
+        } 
+        catch (err) {
             setError(err instanceof Error ? err.message : "An error occurred");
         }
     };
