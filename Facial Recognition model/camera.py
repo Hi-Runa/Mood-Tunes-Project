@@ -1,3 +1,9 @@
+'''
+    Hiruna Devadithya, Vaibhav Alaparthi, Ayush Vupalanchi
+    1/24/25 
+
+    Used for testing accuracy of model using computer webcam
+'''
 import cv2
 import tensorflow as tf
 import numpy as np

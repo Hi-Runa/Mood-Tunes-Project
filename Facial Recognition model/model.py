@@ -4,6 +4,13 @@ import os
 import cv2
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
+'''
+    Hiruna Devadithya, Vaibhav Alaparthi, Ayush Vupalanchi
+    1/24/25 
+
+    This class creates the camera CNN model and accesses the training and validation data from the kaggle dataset
+'''
+
 # Define constants
 IMG_SIZE = (48, 48)
 BATCH_SIZE = 32
