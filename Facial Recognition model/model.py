@@ -56,6 +56,7 @@ def build_model():
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
     return model
 
+#Build
 model = build_model()
 print("Model summary:")
 model.summary()
