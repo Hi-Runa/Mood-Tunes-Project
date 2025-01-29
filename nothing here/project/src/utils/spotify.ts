@@ -1,14 +1,8 @@
 /*
         Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
         1/23/25
-<<<<<<< HEAD
         This file fetches an access token from Spotify and retrieves a playlist based on the user's emotion.
         
-=======
-
-        This file is responsible for fetching the spotify API token using the 
-        clientID and clientSecret Hiruna created and uses the token that spotify authorizes and provides  
->>>>>>> fcfa9c2e3a2192303ed3e06df59ee17003f175da
 */
 
 import { SpotifyCredentials, EmotionResult } from '../types';
@@ -37,7 +31,7 @@ async function getAccessToken(): Promise<string> {
   return accessToken;
 }
 
-// Map emotions to Spotify playlists
+// Map emotions to curated Spotify playlists
 const EMOTION_PLAYLISTS = {
   'Angry': '37i9dQZF1EIhuCNl2WSFYd',  // Rage Beats
   'Disgust': '37i9dQZF1EIgNZCaOGb0Mi', // Dark & Stormy

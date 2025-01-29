@@ -36,7 +36,7 @@ export function EmotionDetector({ onEmotionDetected }: Props) {
   }, []);
 
   const analyzeContext = useCallback((text: string) => {
-    // match general common moods to keywords that are associated with these basic moods
+    // Comprehensive emotion patterns with associated words and weights
     const emotionPatterns = [
       {
         emotion: 'Happy',
@@ -96,7 +96,7 @@ export function EmotionDetector({ onEmotionDetected }: Props) {
       }
     ];
 
-    // Sentiment analysis for text based on intensity and connotation
+    // Sentiment analysis for text without explicit emotion words
     const sentimentPatterns = {
       positive: /\b(good|nice|great|cool|lit|fire|vibe|chill|relaxed|peaceful|energetic|motivated|productive|accomplished|proud|blessed|fantastic|wonderful|amazing|awesome|excellent|brilliant|outstanding|remarkable|incredible|extraordinary|spectacular|magnificent|marvelous|splendid|superb|terrific|fabulous|phenomenal)\b/i,
       negative: /\b(bad|not good|meh|tired|exhausted|bored|stuck|overwhelmed|stressed|frustrated|terrible|horrible|awful|dreadful|poor|disappointing|unsatisfactory|unpleasant|unfortunate|unfavorable|inadequate|insufficient|mediocre|subpar|inferior|deficient|lacking|missing|wanting|failing)\b/i,
@@ -113,7 +113,7 @@ export function EmotionDetector({ onEmotionDetected }: Props) {
       return { emotion, score };
     });
 
-    // Pick the best emotion that will natch based on sentiment
+    // If we found explicit emotions, use the highest scoring one
     const maxScore = Math.max(...scores.map(s => s.score));
     if (maxScore > 0) {
       const topEmotion = scores.find(s => s.score === maxScore)!;
@@ -124,7 +124,7 @@ export function EmotionDetector({ onEmotionDetected }: Props) {
       };
     }
 
-
+    // If no explicit emotions, analyze sentiment
     const positiveMatches = (text.match(sentimentPatterns.positive) || []).length;
     const negativeMatches = (text.match(sentimentPatterns.negative) || []).length;
     const intensityMatches = (text.match(sentimentPatterns.intensity) || []).length;
@@ -152,7 +152,6 @@ export function EmotionDetector({ onEmotionDetected }: Props) {
     };
   }, []);
 
-  // Loads camera from user's webcam
   const captureImage = useCallback(async () => {
     if (!webcamRef.current || !modelLoaded) return;
     
@@ -187,7 +186,6 @@ export function EmotionDetector({ onEmotionDetected }: Props) {
     onEmotionDetected(analysis);
   }, [textInput, analyzeContext, onEmotionDetected]);
 
-  // html header components for the camera loading
   return (
     <div className="w-full max-w-2xl mx-auto p-6">
       {!mode ? (

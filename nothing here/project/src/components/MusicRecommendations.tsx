@@ -46,7 +46,7 @@ export function MusicRecommendations({ emotion }: Props) {
   const handleNextPlaylist = () => {
     setCurrentPlaylistIndex(prev => prev + 1);
   };
-  // html headers for music recommendations
+
   return (
     <div className="w-full max-w-2xl mx-auto p-6">
       <div className="bg-white rounded-lg shadow-lg p-6">

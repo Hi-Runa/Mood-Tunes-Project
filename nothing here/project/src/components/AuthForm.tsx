@@ -6,17 +6,10 @@
     with email, password, and username.
 */
 
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { Mail, Lock, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-=======
-import React, { useState } from 'react';
-import { Mail, Lock, User } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-// sign-in page for user to enter email and password and confirmation
->>>>>>> fcfa9c2e3a2192303ed3e06df59ee17003f175da
 interface AuthFormProps {
     onSubmit: (
         email: string,
@@ -40,7 +33,6 @@ export function AuthForm({ onSubmit, redirectPath = "/find-music" }: AuthFormPro
         e.preventDefault();
         setError("");
 
-<<<<<<< HEAD
         try {
             await onSubmit(email, password, isSignUp ? username : undefined, isSignUp);
             navigate(redirectPath);
@@ -141,16 +133,6 @@ export function AuthForm({ onSubmit, redirectPath = "/find-music" }: AuthFormPro
                     </div>
                 </form>
             </div>
-=======
-  // html headers for sign-in page
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            {isSignUp ? 'Create an account' : 'Sign in to your account'}
-          </h2>
->>>>>>> fcfa9c2e3a2192303ed3e06df59ee17003f175da
         </div>
     );
 }

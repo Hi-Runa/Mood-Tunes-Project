@@ -1,9 +1,3 @@
-/*
-        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
-        1/23/25
-
-        This file defines project dependencies, scripts, and metadata for the React TypeScript application.
-*/
 {
   "name": "vite-react-typescript-starter",
   "private": true,

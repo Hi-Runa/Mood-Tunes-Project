@@ -12,12 +12,8 @@ interface TeamMember {
   name: string;
   image: string;
 }
-<<<<<<< HEAD
 
 // Array of team members with their names and image URLs
-=======
-// team members with their names and photos
->>>>>>> fcfa9c2e3a2192303ed3e06df59ee17003f175da
 const teamMembers: TeamMember[] = [
   {
     name: "Vaibhav Alaparthi",

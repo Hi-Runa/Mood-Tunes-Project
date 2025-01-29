@@ -2,11 +2,7 @@
         Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
         1/23/25
 
-<<<<<<< HEAD
         This file contains TypeScript functions for loading a TensorFlow.js model, preprocessing images, and predicting user emotions from selfies or text input.
-=======
-        This file is responsible for loading the model and predicting the emotion of the user.
->>>>>>> fcfa9c2e3a2192303ed3e06df59ee17003f175da
 */
 
 import * as tf from '@tensorflow/tfjs';
@@ -52,7 +48,7 @@ export async function loadModel() {
     return null;
   }
 }
-// process image so that it can load the camera detection model 
+
 export async function preprocessImage(image: HTMLImageElement): Promise<tf.Tensor4D> {
   return tf.tidy(() => {
     // Convert image to tensor and preprocess
