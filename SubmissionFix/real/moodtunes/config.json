@@ -1,0 +1,11 @@
+{
+  // Project configuration
+  "buildTool": "vite",
+  "framework": "react",
+  "language": "typescript",
+  
+  // Additional metadata
+  "version": "1.0.0",
+  "author": "Vaibhav Alaparthi, Hiruna D, Ayush Vupalanchi",
+  "description": "Configuration for Mood-Tunes-Model project using Vite, React, and TypeScript"
+}
