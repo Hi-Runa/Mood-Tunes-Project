@@ -1,3 +1,9 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+
+        This file is responsible for finding the tunes that match the user's mood
+*/
 import { EmotionResult } from '../types';
 
 const spotifyCreds = {

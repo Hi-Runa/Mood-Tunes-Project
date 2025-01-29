@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { Mail, Lock, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-
+// sign-in page for user to enter email and password and confirmation
 interface AuthFormProps {
   onSubmit: (email: string, password: string, username: string | undefined, isSignUp: boolean) => void;
   redirectPath?: string;
@@ -34,6 +34,7 @@ export function AuthForm({ onSubmit, redirectPath = '/find-music' }: AuthFormPro
     }
   };
 
+  // html headers for sign-in page
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">

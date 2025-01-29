@@ -1,3 +1,11 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+
+        This file is responsible for fetching the spotify API token using the 
+        clientID and clientSecret Hiruna created and uses the token that spotify authorizes and provides  
+*/
+
 import { SpotifyCredentials, EmotionResult } from '../types';
 
 const credentials: SpotifyCredentials = {
@@ -24,7 +32,7 @@ async function getAccessToken(): Promise<string> {
   return accessToken;
 }
 
-// Map emotions to curated Spotify playlists
+// Map emotions to Spotify playlists
 const EMOTION_PLAYLISTS = {
   'Angry': '37i9dQZF1EIhuCNl2WSFYd',  // Rage Beats
   'Disgust': '37i9dQZF1EIgNZCaOGb0Mi', // Dark & Stormy

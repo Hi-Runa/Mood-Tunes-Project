@@ -1,3 +1,10 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+
+        This file is responsible for loading the model and predicting the emotion of the user.
+*/
+
 import * as tf from '@tensorflow/tfjs';
 
 // Initialize TensorFlow.js
@@ -40,7 +47,7 @@ export async function loadModel() {
     return null;
   }
 }
-
+// process image so that it can load the camera detection model 
 export async function preprocessImage(image: HTMLImageElement): Promise<tf.Tensor4D> {
   return tf.tidy(() => {
     // Convert image to tensor and preprocess

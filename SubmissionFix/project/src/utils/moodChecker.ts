@@ -1,8 +1,13 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+
+        This file is responsible for checking the user's mood based on their selfie.
+*/
 import * as tf from '@tensorflow/tfjs';
 
 let brainModel: tf.LayersModel | null = null;
 
-// Where's our model at?
 const MODEL_PATH = window.MODEL_PATH || '';
 
 export const VIBES = [

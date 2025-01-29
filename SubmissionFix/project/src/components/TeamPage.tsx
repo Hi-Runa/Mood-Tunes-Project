@@ -11,7 +11,7 @@ interface TeamMember {
   name: string;
   image: string;
 }
-
+// team members with their names and photos
 const teamMembers: TeamMember[] = [
   {
     name: "Vaibhav Alaparthi",
