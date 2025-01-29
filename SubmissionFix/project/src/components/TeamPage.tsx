@@ -1,3 +1,10 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+
+        This file shows team member information with their photos and names.
+*/
+
 import React from 'react';
 
 interface TeamMember {
@@ -8,15 +15,15 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: "Vaibhav Alaparthi",
-    image: "https://images.unsplash.com/photo-1706325640622-7a0a11f5d89f"
+    image: "https://cdn.discordapp.com/attachments/1333924617659879526/1334035742967468062/image.jpg?ex=679b111a&is=6799bf9a&hm=06725a687d3dc525568fb1b66da677bfcfcad994831a8b5df6c512d16120800d&"
   },
   {
-    name: "Hiruna Devaditya",
-    image: "https://images.unsplash.com/photo-1706325640621-7a0a11f5d90f"
+    name: "Hiruna Devadithya",
+    image: "https://cdn.discordapp.com/attachments/1333924617659879526/1334027960709025853/image.png?ex=679b09da&is=6799b85a&hm=a31606c866d33feae7e8e66b1e7c8c69ab89764e2c9d6864e18733cc9f5f492a&"
   },
   {
     name: "Ayush Vupalanchi",
-    image: "https://images.unsplash.com/photo-1706325640620-7a0a11f5d91f"
+    image: "https://cdn.discordapp.com/attachments/1333924617659879526/1334034480083767368/image.png?ex=679b0fed&is=6799be6d&hm=73976a95146bb2d24b4e2523675a4f03491d7ca27ad52a25c91b529bd953936e&"
   }
 ];
 

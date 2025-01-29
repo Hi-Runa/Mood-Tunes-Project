@@ -1,3 +1,10 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+
+        This file configures ESLint with TypeScript and React-specific rules for code linting.
+*/
+
 import js from '@eslint/js';
 import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';

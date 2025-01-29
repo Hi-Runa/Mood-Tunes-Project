@@ -1,3 +1,10 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+
+        This file is the component that detects user emotions through webcam or text input.
+*/
+
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import Webcam from 'react-webcam';
 import { Camera, Type } from 'lucide-react';

@@ -16,3 +16,8 @@ export interface SpotifyTrack {
   albumArt: string;
   previewUrl: string | null;
 }
+
+export interface User {
+  email: string;
+  username: string;
+}

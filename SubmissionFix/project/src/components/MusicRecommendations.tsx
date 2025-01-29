@@ -1,3 +1,10 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+
+        This file displays personalized music recommendations based on detected emotions.
+*/
+
 import React, { useState, useEffect } from 'react';
 import { Music, RefreshCw } from 'lucide-react';
 import { EmotionResult } from '../types';
