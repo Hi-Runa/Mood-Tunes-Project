@@ -27,7 +27,8 @@ export function EmotionDetector({ onEmotionDetected }: Props) {
       try {
         const model = await loadModel();
         setModelLoaded(!!model);
-      } catch (error) {
+      } 
+      catch (error) {
         console.error('Error loading model:', error);
       }
     }
@@ -134,7 +135,8 @@ export function EmotionDetector({ onEmotionDetected }: Props) {
         confidence: Math.min(0.8, 0.5 + (positiveMatches * 0.1) + (intensityMatches * 0.05)),
         description: 'Music to match your positive vibes'
       };
-    } else if (negativeMatches > positiveMatches) {
+    } 
+    else if (negativeMatches > positiveMatches) {
       return {
         emotion: 'Sad',
         confidence: Math.min(0.8, 0.5 + (negativeMatches * 0.1) + (intensityMatches * 0.05)),
@@ -169,9 +171,11 @@ export function EmotionDetector({ onEmotionDetected }: Props) {
         confidence,
         description: `Music for when you're feeling ${emotion.toLowerCase()}`
       });
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Error detecting emotion:', error);
-    } finally {
+    } 
+    finally {
       setIsLoading(false);
     }
   }, [modelLoaded, onEmotionDetected]);

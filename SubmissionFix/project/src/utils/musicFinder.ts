@@ -1,3 +1,11 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+
+        This file contains TypeScript code for fetching Spotify playlists based on user emotions using the Spotify API.
+*/
+
+
 import { EmotionResult } from '../types';
 
 const spotifyCreds = {

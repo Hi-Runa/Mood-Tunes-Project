@@ -1,3 +1,10 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+
+        This file contains TypeScript functions for loading a TensorFlow.js model, preprocessing images, and predicting user emotions from selfies or text input.
+*/
+
 import * as tf from '@tensorflow/tfjs';
 
 // Initialize TensorFlow.js
@@ -35,7 +42,8 @@ export async function loadModel() {
     
     console.log('Model loaded and warmed up successfully');
     return model;
-  } catch (error) {
+  } 
+  catch (error) {
     console.error('Error loading model:', error);
     return null;
   }

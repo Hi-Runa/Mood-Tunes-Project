@@ -1,3 +1,8 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+*/
+
 export interface SpotifyCredentials {
   clientId: string;
   clientSecret: string;

@@ -42,14 +42,16 @@ export function VibeChecker({ onVibeCheck }: Props) {
         setTimeout(() => {
           onVibeCheck(getHappyEmotion(1.0));
         }, 500);
-      } else {
+      } 
+      else {
         setMode('text');
         setUserText('Super happy and energetic!');
         setTimeout(() => {
           onVibeCheck(getHappyEmotion(1.0));
         }, 500);
       }
-    } else {
+    } 
+    else {
       // Single click
       setMode(clickType);
     }

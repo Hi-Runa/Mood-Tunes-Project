@@ -1,3 +1,10 @@
+/*
+        Ayush Vupalanchi, Vaibhav Alaparthi, Hiruna Devadithya
+        1/23/25
+        This file fetches an access token from Spotify and retrieves a playlist based on the user's emotion.
+        
+*/
+
 import { SpotifyCredentials, EmotionResult } from '../types';
 
 const credentials: SpotifyCredentials = {
