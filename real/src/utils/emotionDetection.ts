@@ -19,3 +19,8 @@ export async function predictEmotion(): Promise<{ emotion: Emotion; confidence: 
     confidence: 1.0
   };
 }
+
+export async function loadModel() {
+  // Currently a stub - would normally load TensorFlow model
+  return true;
+}
